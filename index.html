@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://socracy.es/">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Socracy · Entrevistamos a toda tu plantilla con IA</title>
+<meta name="description" content="Un entrevistador de IA conversa con toda tu plantilla, o con los equipos que elijas, en días. Sabrás qué falla, cuántos lo dicen y qué hacer primero.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Socracy">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Socracy · Entrevistamos a toda tu plantilla con IA">
+<meta property="og:description" content="Un entrevistador de IA conversa con toda tu plantilla, o con los equipos que elijas, en días. Sabrás qué falla, cuántos lo dicen y qué hacer primero.">
+<link rel="stylesheet" href="fuentes/fuentes.css">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#inicio" aria-label="socracy, inicio"><b>socracy</b></a>
+    <ul>
+      <li><a href="#el-problema" data-key="p"><span class="key" data-k="green-2">P</span><span>El problema</span></a></li>
+      <li><a href="#como-funciona" data-key="m"><span class="key" data-k="sage">M</span><span>Cómo funciona</span></a></li>
+      <li class="cases">
+        <button type="button" id="menu-btn" aria-expanded="false" aria-controls="menu-panel" data-key="u"><span class="key" data-k="sand">U</span><span>Casos de uso</span><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="panel-cases" id="menu-panel" hidden>
+          <div><h3>Casos de uso</h3><ul>
+            <li><a href="operaciones.html"><span>Operaciones</span><small>Qué falla en cada centro, en los flujos de trabajo y en la producción.</small></a></li>
+            <li><a href="adopcion-ia.html"><span>Adopción de IA</span><small>Dónde usar la IA, cómo mejorar con ella y qué necesita cada equipo.</small></a></li>
+            <li><a href="compromiso.html"><span>Compromiso de los empleados</span><small>Escucha a tu gente para conocer sus inquietudes y su compromiso con la empresa.</small></a></li>
+            <li><a href="puntos-de-venta.html"><span>Mejora en puntos de venta</span><small>¿Qué falla en tienda? ¿Qué se podría mejorar? ¿Cómo es el trato al cliente final?</small></a></li>
+            <li><a href="administracion.html"><span>Administración y facturación</span><small>Dónde se atascan facturas, cobros y contabilidad.</small></a></li>
+            <li><a href="comercial.html"><span>Procesos comerciales</span><small>¿Por qué no se llega a los objetivos comerciales?</small></a></li>
+            <li><a href="adquisiciones-e-inversion.html"><span>Adquisiciones e inversión</span><small>Cómo trabaja por dentro la empresa que compras o en la que inviertes.</small></a></li>
+          </ul></div>
+          <div><h3>Para consultoras</h3><ul>
+            <li><a href="consultoras.html"><span>¿Eres consultora?</span><small>Entrevistamos a toda la plantilla de tu cliente.</small></a></li>
+          </ul></div>
+        </div>
+      </li>
+    </ul>
+    <a class="go" href="mailto:hola@socracy.es?subject=Hablemos%20de%20Socracy" data-key="h"><span>→ <span class="t">Hablamos 20 minutos</span></span><span class="key" data-k="mint">H</span></a>
+  </div>
+</header>
+
+<div class="stage" id="inicio">
+  <div class="content" role="main" id="contenido" tabindex="-1">
+
+    <section class="sec hero" aria-labelledby="h1">
+      <div class="hero-head">
+        <p class="tag mono hero-tag"><span>NO PUEDES MEJORAR SI NO CONOCES LA VERDADERA REALIDAD</span></p>
+        <h1 id="h1">Resolvemos los retos de tu empresa con información completa y real.</h1>
+        <p class="lede lede-top">Entrevistamos a toda tu plantilla en días, no en semanas.</p>
+      </div>
+      <div class="win hero-win" role="group" aria-label="Ejemplo de conversación ficticia">
+        <div class="bar" aria-hidden="true">
+            <svg viewBox="0 0 16 16"><rect x=".5" y=".5" width="15" height="15" fill="none" stroke="currentColor"/><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor"/></svg><i></i>
+            <svg viewBox="0 0 16 16"><rect x=".5" y=".5" width="15" height="15" fill="none" stroke="currentColor"/><rect x="4.5" y="4.5" width="7" height="7" fill="none" stroke="currentColor"/></svg>
+          </div>
+        <div class="body">
+          <span class="label mono">Ejemplo</span>
+          <p class="chat-ctx mono">Reto: camiones que salen tarde · Responde: jefe de turno de almacén</p>
+          <div class="chat chat-2col">
+              <div class="ia"><span class="who">Entrevistador IA</span><span>Pensando en las salidas de la tarde, ¿qué es lo que más os complica que un camión salga a su hora?</span></div>
+              <div><span class="who">Jefe de turno · Almacén</span><span>Un poco de todo. Los pedidos de última hora, las prisas…</span></div>
+              <div class="ia"><span class="who">Entrevistador IA</span><span>Vamos al último camión que salió tarde. ¿Cuándo fue y qué pasó?</span></div>
+              <div><span class="who">Jefe de turno · Almacén</span><span>El jueves. Estaba cargado a las siete y salió a las ocho y media. Faltaba un albarán.</span></div>
+              <div class="ia"><span class="who">Entrevistador IA</span><span>Hora y media con el camión cargado. ¿Cuántas veces os pasa algo así en una semana normal?</span></div>
+              <div><span class="who">Jefe de turno · Almacén</span><span>Esta semana, tres. Siempre lo mismo: el pedido está retenido por crédito y no lo sabemos hasta que vamos a imprimir el albarán.</span></div>
+              <div class="ia"><span class="who">Entrevistador IA</span><span>¿Y por qué no lo sabéis antes de prepararlo?</span></div>
+              <div><span class="who">Jefe de turno · Almacén</span><span class="typing">El programa lo manda a preparar igual. Quien lo libera está en administración y se va a las seis. Arriba creen que vamos lentos.</span></div>
+          </div>
+          <p class="chat-fin"><span class="mono">Lo que destapa</span>El crédito se revisa con el camión ya cargado. Se puede hacer antes de preparar el pedido.</p>
+        </div>
+        <div class="acts">
+          <a class="btn" href="mailto:hola@socracy.es?subject=Hablemos%20de%20Socracy" data-key="h"><span>Hablamos 20 minutos</span><span class="key" data-k="mint">H</span></a>
+          <a class="btn" href="#como-funciona" data-key="m"><span>Ver cómo funciona</span><span class="key" data-k="green-2">M</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec dark" id="el-problema" data-anchor aria-labelledby="h-problema">
+      <div>
+        <div class="tag mono"><span class="n">01</span><span>El problema</span></div>
+        <h2 id="h-problema">No tienes la información real y completa</h2>
+        <p>Intentas resolver los retos de tu empresa, pero no tienes la información completa de tu departamento ni de toda la compañía.</p>
+        <p>Decides con indicadores y con lo que te cuentan unos pocos. Mientras, quien hace el trabajo sabe dónde se pierde el tiempo. Nadie se lo pregunta.</p>
+        <p>Al final pones en marcha cambios, a menudo caros, que no mejoran nada, porque nadie conocía bien el problema.</p>
+        <p><strong>Tu plantilla ya lo sabe. Falta que te llegue.</strong></p>
+      </div>
+      <figure class="reach" id="reach" aria-hidden="true">
+        <svg viewBox="0 0 480 380"></svg>
+        <figcaption class="reach-cap mono"><span class="a">Hoy te llega lo que cuentan unos pocos</span><span class="b">Con Socracy te llega lo que cuenta toda la plantilla</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="sec" id="como-funciona" data-anchor aria-labelledby="h-metodo">
+      <div class="tag mono"><span class="n">02</span><span>Cómo funciona</span></div>
+      <div class="pv">
+        <h2 class="pv-h" id="h-metodo">Escuchamos a tu plantilla para tener la información real que soluciona problemas.</h2>
+        <p class="pv-p">Un entrevistador de IA, con método y altamente cualificado, conversa con cada persona de tu plantilla, o con los equipos que elijas, desde el móvil o el ordenador. Nuestros socios ordenan lo que cuentan y se sientan contigo. Sales sabiendo qué falla, cuántos lo dicen y qué hacer primero.</p>
+      </div>
+      <div class="tabs">
+        <div class="tablist" role="tablist" aria-label="Cómo funciona, en tres pasos"><button type="button" role="tab" id="tab-0" aria-controls="tab-panel" aria-selected="true"><span class="key" data-k="mint">1</span><span>Preparación del reto</span></button><button type="button" role="tab" id="tab-1" aria-controls="tab-panel" aria-selected="false"><span class="key" data-k="mint">2</span><span>Socracy entrevista</span></button><button type="button" role="tab" id="tab-2" aria-controls="tab-panel" aria-selected="false"><span class="key" data-k="mint">3</span><span>Información real y soluciones.</span></button></div>
+        <div class="tabpanel" id="tab-panel" role="tabpanel" aria-labelledby="tab-0" aria-live="polite">
+          <canvas id="tab-canvas" width="60" height="34" aria-hidden="true"></canvas>
+          <div class="txt"></div>
+        </div>
+      </div>
+      <p class="more-wrap"><a class="more" href="como-funciona.html">Ver más en detalle <span aria-hidden="true">→</span></a></p>
+      <h3 class="adv-h">Más rápido. Más fiable.</h3>
+      <div class="adv"><div class="fact"><span data-icon="people" data-fill="#0E4A3A"></span><div><b>A quien tú elijas</b><span>Toda la plantilla o solo algunos equipos.</span></div></div><div class="fact"><span data-icon="chat" data-fill="#0E4A3A"></span><div><b>Entrevistas en pocos días</b><span>Cada uno responde cuando puede, sin parar el trabajo.</span></div></div><div class="fact"><span data-icon="map" data-fill="#0E4A3A"></span><div><b>Del reto al plan</b><span>Preparamos, entrevistamos y te decimos la solución.</span></div></div><div class="fact"><span data-icon="lock" data-fill="#0E4A3A"></span><div><b>Datos en la UE</b><span>Si lo necesitas. Y el entrevistador siempre avisa de que es una IA.</span></div></div></div>
+    </section>
+
+    <section class="sec" id="casos-de-uso" data-anchor aria-labelledby="h-casos">
+      <div class="tag mono"><span class="n">03</span><span>Casos de uso</span></div>
+      <h2 class="sec-h" id="h-casos">Retos en los que te podemos ayudar</h2>
+      <p class="sec-p">Elige tu área: verás los problemas típicos y un caso contado de principio a fin.</p>
+      <div class="cases-grid">
+        <a class="case" href="operaciones.html"><span data-icon="site" data-fill="#0E4A3A"></span><div><b>Operaciones</b><span>Qué falla en cada centro, en los flujos de trabajo y en la producción.</span></div></a>
+        <a class="case" href="adopcion-ia.html"><span data-icon="link" data-fill="#0E4A3A"></span><div><b>Adopción de IA</b><span>Dónde usar la IA, cómo mejorar con ella y qué necesita cada equipo.</span></div></a>
+        <a class="case" href="compromiso.html"><span data-icon="people" data-fill="#0E4A3A"></span><div><b>Compromiso de los empleados</b><span>Escucha a tu gente para conocer sus inquietudes y su compromiso con la empresa.</span></div></a>
+        <a class="case" href="puntos-de-venta.html"><span data-icon="flag" data-fill="#0E4A3A"></span><div><b>Mejora en puntos de venta</b><span>¿Qué falla en tienda? ¿Qué se podría mejorar? ¿Cómo es el trato al cliente final?</span></div></a>
+        <a class="case" href="administracion.html"><span data-icon="disk" data-fill="#0E4A3A"></span><div><b>Administración y facturación</b><span>Dónde se atascan facturas, cobros y contabilidad.</span></div></a>
+        <a class="case" href="comercial.html"><span data-icon="chat" data-fill="#0E4A3A"></span><div><b>Procesos comerciales</b><span>¿Por qué no se llega a los objetivos comerciales?</span></div></a>
+        <a class="case" href="adquisiciones-e-inversion.html"><span data-icon="map" data-fill="#0E4A3A"></span><div><b>Adquisiciones e inversión</b><span>Cómo trabaja por dentro la empresa que compras o en la que inviertes.</span></div></a>
+        <a class="case consult" href="consultoras.html"><span data-icon="people" data-fill="#4FB08D"></span><div><b>¿Eres consultora?</b><span>Entrevistamos a toda la plantilla de tu cliente.</span></div></a>
+      </div>
+    </section>
+
+    <section class="sec contact" id="contacto" data-anchor aria-labelledby="h-contacto">
+      <div class="c-form">
+        <h2 id="h-contacto" class="c-h">Hablemos</h2>
+        <p>Cuéntanos qué te preocupa en tu empresa y te enseñamos cómo sería preguntar a tu equipo.</p>
+        <a class="btn btn-mail" href="mailto:hola@socracy.es?subject=Hablemos%20de%20Socracy" data-key="e"><span>Escríbenos</span><span class="key" data-k="mint">E</span></a>
+        <div class="fields">
+          <div class="field">
+            <span class="lbl" id="mail-l">Nuestro correo</span>
+            <div class="addr"><a id="mail" href="mailto:hola@socracy.es?subject=Hablemos%20de%20Socracy" aria-describedby="mail-l">hola@socracy.es</a><button class="btn" type="button" id="copy" data-key="c" data-mail="hola@socracy.es"><span>Copiar</span><span class="key" data-k="mint">C</span></button></div>
+          </div>
+          <p class="status" id="status" role="status" aria-live="polite"></p>
+          
+        </div>
+      </div>
+      <div class="c-art"><canvas id="plus" width="40" height="40" aria-hidden="true"></canvas></div>
+    </section>
+
+  </div>
+
+  <aside class="aside" aria-label="Socracy">
+    <div class="aside-in">
+      <canvas class="people" id="people" width="52" height="84" aria-hidden="true"></canvas>
+      <p class="people-cap" id="people-n" aria-hidden="true">Conversaciones</p>
+      <a class="cases-link mail-link" href="mailto:hola@socracy.es?subject=Hablemos%20de%20Socracy"><b>Escríbenos <span aria-hidden="true">→</span></b><span>Cuéntanos tu reto: hola@socracy.es</span></a>
+      <a class="cases-link cases-link-alt" href="#casos-de-uso"><b>Descubre los casos de uso <span aria-hidden="true">→</span></b><span>Problemas típicos y un caso por área.</span></a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="f-top">
+    <div>
+      <div class="wm">socracy</div>
+      <div class="f-cols">
+        <div><h2>Casos de uso</h2><ul><li><a href="operaciones.html">Operaciones</a></li><li><a href="adopcion-ia.html">Adopción de IA</a></li><li><a href="compromiso.html">Compromiso de los empleados</a></li><li><a href="puntos-de-venta.html">Mejora en puntos de venta</a></li><li><a href="administracion.html">Administración y facturación</a></li><li><a href="comercial.html">Procesos comerciales</a></li><li><a href="adquisiciones-e-inversion.html">Adquisiciones e inversión</a></li></ul></div>
+        <div><h2>Socracy</h2><ul><li><a href="index.html#el-problema">El problema</a></li><li><a href="index.html#como-funciona">Cómo funciona</a></li><li><a href="como-funciona.html">Cómo funciona, en detalle</a></li><li><a href="consultoras.html">Para consultoras</a></li></ul></div>
+        <div><h2>Contacto</h2><ul><li><a href="mailto:hola@socracy.es?subject=Hablemos%20de%20Socracy">hola@socracy.es</a></li></ul></div>
+      </div>
+    </div>
+    <div class="legal">© 2026 Proyectos Merli SL<br><a href="privacidad">Privacidad</a> · <a href="aviso-legal">Aviso legal</a></div>
+  </div>
+</footer>
+
+<script src="tabs-data.js"></script>
+<script src="socracy.js"></script>
+</body>
+</html>

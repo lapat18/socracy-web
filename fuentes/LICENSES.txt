@@ -1,0 +1,2 @@
+Fuentes alojadas en este sitio: Newsreader, Inter, DM Mono y Pixelify Sans.
+Todas se distribuyen bajo la licencia SIL Open Font License 1.1; el texto completo y el aviso de copyright de cada una está en los archivos OFL-*.txt de esta carpeta.
