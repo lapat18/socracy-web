@@ -1,0 +1,154 @@
+/* Versión B · añadidos sobre estilo.css. Solo tokens y valores que ya existen en estilo.css
+   (ver 12-ux-ui.md §3). Sin esquinas redondeadas, rayas de 1px y sombras duras. */
+
+/* H5: la barra de .theme-row no hereda la de la ventana */
+.theme-row .bar { display: block; padding: 0; border: 0; }
+
+/* Etiqueta de sección usada como título (sin inventar titulares) */
+h2.tag, h3.tag { margin: 0; font-weight: 400; }
+
+/* ---------- Cabecera: texto corto en móvil (12-ux-ui §2.3) ---------- */
+.nav .go .t-s { display: none; }
+@media (max-width: 420px) {
+  .nav .go .t-s { display: inline; }
+  .nav .go { padding: 0 10px; gap: 8px; }
+  .nav .go .key { display: none; }
+  .nav ul { padding: 0 8px; }
+}
+
+/* ---------- Portada ---------- */
+.b-hero { gap: 28px; }
+.b-hero .hero-head h1 { font-size: clamp(30px, 4.6vw, 66px); line-height: 1.02; max-width: 24ch; }
+.b-hero .hero-head .lede-top { font-size: clamp(18px, 2.1vw, 28px); line-height: 1.25; max-width: 44ch !important; }
+.b-hero .hero-low { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 32px 40px; align-items: start; }
+.b-acts { display: grid; gap: 10px; width: min(100%, 420px); }
+.b-acts .btn { padding-block: 12px; font-size: 14px; }
+.b-acts .btn.b-ghost { background: var(--panel); color: var(--ink); }
+.b-acts .btn.b-ghost:hover { background: var(--mint); border-color: var(--ink); }
+.b-reply { display: grid; gap: 10px; margin-top: 18px; width: min(100%, 420px); }
+.b-reply p { margin: 0; font-size: 16px; line-height: 1.45; }
+.b-reply .b-li { color: var(--ink-2); line-height: 1.5; font-size: 12.5px; }
+.b-reply .status { min-height: 0; }
+.b-reply .status:empty { display: none; }
+@media (max-width: 760px) {
+  .b-hero .hero-low { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .b-hero { padding-top: 20px; gap: 22px; }
+  .b-hero .hero-tag { font-size: 11.5px; line-height: 1.45; }
+  .b-hero .hero-head h1 { margin-top: 12px; font-size: 30px; line-height: 1.04; letter-spacing: -0.035em; }
+  .b-hero .hero-head .lede-top { margin-top: 12px !important; font-size: 17px; line-height: 1.32; }
+}
+
+/* «Lo que te llevas»: ventana con tres columnas que no obliga a desplazarse de lado */
+.b-take .body { display: grid; gap: 12px; }
+.b-take .b-take-h { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.b-take .b-take-h b { font-family: var(--serif); font-weight: 400; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; }
+.b-take .chat-ctx { margin: 0; }
+.b-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; padding: 12px; margin: 0 -14px; background: #F5F8F6; border-block: 1px solid #DCE3DF; list-style: none; }
+.b-cols li { display: grid; gap: 8px; align-content: start; }
+.b-cols .card { gap: 10px; }
+.b-cols .card p { font-size: 15px; }
+.b-cols .voices { display: grid; gap: 6px; justify-items: start; border-top: 1px dashed #B9C6BF; }
+.b-take .chat-fin { margin: 0; padding-top: 0; border-top: 0; }
+.b-type::after { content: "▍"; margin-left: 2px; color: var(--green-2); animation: blink 1s steps(1) infinite; }
+.b-anim .b-cols li { opacity: 0; transform: translateY(6px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
+.b-anim .b-cols li.on { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .b-type::after { animation: none; } .b-anim .b-cols li { opacity: 1; transform: none; transition: none; } }
+@media (max-width: 980px) and (min-width: 761px) { .b-cols { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .b-cols { grid-template-columns: 1fr; } }
+
+/* ---------- 01 El problema (negro) ---------- */
+.b-three { list-style: none; margin: 4px 0 22px; padding: 0; display: grid; gap: 0; border: 1px solid #2A3530; max-width: 46ch; }
+.b-three li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 14px; align-items: start; padding: 14px; }
+.b-three li + li { border-top: 1px solid #2A3530; }
+.b-three svg { width: 24px; height: 24px; display: block; margin-top: 2px; }
+.b-three b { display: block; font-weight: 500; color: var(--on-dark); font-size: 18px; letter-spacing: -0.02em; margin-bottom: 2px; }
+.b-three span { color: var(--on-dark-2); font-size: 16px; line-height: 1.4; }
+.dark .more { color: var(--ink); }
+.dark .more-wrap { justify-content: flex-start; margin-top: 18px; }
+
+/* ---------- 02 Qué hacemos: la reunión, antes y después ---------- */
+.b-claim { margin: 26px 0 0; font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 3.4vw, 48px); line-height: 1.06; letter-spacing: -0.035em; max-width: 24ch; text-wrap: balance; }
+/* ---------- 04 Por qué Socracy ---------- */
+.b-why { display: grid; grid-template-columns: minmax(0, 1fr) 160px; gap: 24px; align-items: end; }
+.b-why .c-art { min-height: 0; aspect-ratio: 1; }
+.b-why .c-art canvas { width: 70%; }
+.b-why-p { margin: 16px 0 0; font-size: 18px; line-height: 1.5; max-width: 60ch; }
+.b-why + .adv { margin-top: 26px; }
+.b-note { margin: 16px 0 0; font-size: 16px; color: var(--ink-2); max-width: 60ch; }
+.b-cta { margin-top: 22px; }
+.b-cta .btn { width: min(100%, 320px); padding-block: 12px; font-size: 14px; }
+.adv.b-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 760px) { .b-why { grid-template-columns: 1fr; } .b-why .c-art { display: none; } }
+@media (max-width: 980px) { .adv.b-3 { grid-template-columns: 1fr; } }
+
+/* ---------- 05 Casos de uso: seis tarjetas ---------- */
+.cases-grid.b-six { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 980px) { .cases-grid.b-six { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .cases-grid.b-six { grid-template-columns: 1fr; } }
+.case:hover svg, .case:focus-visible svg { animation: b-hop .5s steps(2) 1; }
+@keyframes b-hop { 50% { transform: translateY(-3px); } }
+@media (prefers-reduced-motion: reduce) { .case:hover svg, .case:focus-visible svg { animation: none; } }
+
+/* ---------- 06 Banda para consultoras ---------- */
+.b-band { background: var(--sage); display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 18px 22px; align-items: center; padding-block: clamp(22px, 3vw, 32px); }
+.b-band svg { width: 34px; height: 34px; display: block; }
+.b-band h2 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.08; letter-spacing: -0.03em; text-wrap: balance; }
+.b-band p { margin: 8px 0 0; max-width: 60ch; font-size: 16.5px; }
+.b-band .more { white-space: nowrap; }
+@media (max-width: 860px) { .b-band { grid-template-columns: 34px minmax(0, 1fr); } .b-band .more-wrap { grid-column: 1 / -1; justify-content: flex-start; margin: 0; } .b-band .more { white-space: normal; } }
+
+/* ---------- 07 Quiénes somos ---------- */
+.b-team { display: grid; grid-template-columns: repeat(2, minmax(0, 320px)); gap: 16px; margin-top: 28px; }
+.b-person { border: 1px solid var(--line); display: grid; grid-template-columns: 92px minmax(0, 1fr); background: var(--panel); }
+.b-person .b-ini { display: grid; place-items: center; background: var(--mint); border-right: 1px solid var(--line); font-family: var(--pixel); font-weight: 700; font-size: 56px; line-height: 1; min-height: 110px; }
+.b-person:nth-child(2) .b-ini { background: var(--sand); }
+.b-person > div { padding: 14px 16px; display: grid; gap: 4px; align-content: center; }
+.b-person b { font-family: var(--serif); font-weight: 400; font-size: 30px; letter-spacing: -0.03em; line-height: 1; }
+.b-person .mono { color: var(--green); }
+.b-person span:last-child { font-size: 15px; color: var(--ink-2); }
+.b-team-li { margin: 18px 0 0; color: var(--ink-2); }
+.b-guar-h { margin: 34px 0 0; }
+@media (max-width: 640px) { .b-team { grid-template-columns: 1fr; } }
+
+/* ---------- 08 Preguntas rápidas ---------- */
+
+/* ---------- Contacto ---------- */
+.contact .b-li { max-width: 36ch; margin: 0; font-size: 15.5px; }
+.contact .who-line { margin: 0; }
+
+/* ---------- Páginas de caso (plantilla común B2) ---------- */
+.b-case-hero { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 28px 40px; align-items: end; }
+.b-case-hero .btn { margin-top: 26px; width: min(100%, 320px); padding-block: 12px; font-size: 14px; }
+.b-art { border: 1px solid var(--line); background: var(--mint); aspect-ratio: 1; display: grid; place-items: center; box-shadow: 6px 6px 0 var(--ink); max-width: 340px; width: 100%; justify-self: end; }
+.b-art > span { display: block; width: 46%; }
+.b-art svg { width: 100%; height: auto; display: block; }
+.b-art.b-art-ink { background: var(--ink); position: relative; overflow: hidden; }
+.b-art.b-art-ink canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+@media (max-width: 860px) { .b-case-hero { grid-template-columns: 1fr; } .b-art { max-width: 160px; justify-self: start; box-shadow: 4px 4px 0 var(--ink); order: -1; } }
+@media (max-width: 560px) { .b-art { display: none; } .page-hero .crumbs { margin-bottom: 18px; } .b-case-hero .page-p { font-size: 16px; } .b-case-hero .btn { margin-top: 18px; } }
+
+.b-asks { margin-top: 22px; max-width: 860px; }
+.b-asks .body { display: grid; gap: 12px; }
+.b-asks ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: q; }
+.b-asks li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-top: 1px solid #DCE3DF; font-family: var(--serif); font-size: clamp(19px, 1.8vw, 23px); letter-spacing: -0.015em; line-height: 1.28; }
+.b-asks li .key { margin-top: 3px; }
+.b-asks .b-asks-n { margin: 0; font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
+.b-sum { margin: 10px 0 0; font-family: var(--mono); font-size: 12.5px; color: var(--green); line-height: 1.5; max-width: 90ch; }
+.b-sum span { color: var(--ink-2); }
+.b-get { margin-top: 22px; }
+.b-get .b-cols { margin: 0; border: 1px solid var(--line); }
+.b-get .card b { font-weight: 500; font-size: 17px; letter-spacing: -0.02em; }
+.b-get .card p { font-weight: 400; color: var(--ink-2); }
+.b-get .card:hover { transform: none; box-shadow: none; }
+@media (max-width: 760px) { .b-get .b-cols { grid-template-columns: 1fr; } }
+
+/* 404 */
+.b-404-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.b-asks .ex { justify-self: start; }
+
+/* Espacio 02: animación sin información (voces dispersas que se ordenan), en lugar de las dos ventanas */
+.b-voces { grid-column: 1 / -1; width: 100%; box-sizing: border-box; margin: 30px 0 0; border: 1px solid var(--line); box-shadow: 6px 6px 0 var(--ink); background: var(--panel); }
+.b-voces canvas { display: block; width: 100%; height: 180px; }
+@media (max-width: 600px) { .b-voces canvas { height: 120px; } }

@@ -8,14 +8,16 @@
 <link rel="canonical" href="https://socracy.es/operaciones.html">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Operaciones · Socracy</title>
-<meta name="description" content="Qué frena el trabajo en tus centros y turnos, contado por quien lo hace. Problemas típicos y un caso tipo, contado de principio a fin.">
+<meta name="description" content="Qué frena el trabajo en tus centros, turnos y líneas, contado por todo el equipo que lo hace. Retos típicos y un caso tipo, de principio a fin.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Socracy">
 <meta property="og:locale" content="es_ES">
+<meta property="og:url" content="https://socracy.es/operaciones.html">
 <meta property="og:title" content="Operaciones · Socracy">
-<meta property="og:description" content="Qué frena el trabajo en tus centros y turnos, contado por quien lo hace. Problemas típicos y un caso tipo, contado de principio a fin.">
+<meta property="og:description" content="Qué frena el trabajo en tus centros, turnos y líneas, contado por todo el equipo que lo hace. Retos típicos y un caso tipo, de principio a fin.">
 <link rel="stylesheet" href="fuentes/fuentes.css">
 <link rel="stylesheet" href="estilo.css">
+<link rel="stylesheet" href="b.css">
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -24,26 +26,25 @@
     <a class="brand" href="index.html" aria-label="socracy, inicio"><b>socracy</b></a>
     <ul>
       <li><a href="index.html#el-problema" data-key="p"><span class="key" data-k="green-2">P</span><span>El problema</span></a></li>
-      <li><a href="index.html#como-funciona" data-key="m"><span class="key" data-k="sage">M</span><span>Cómo funciona</span></a></li>
+      <li><a href="index.html#como-funciona" data-key="m"><span class="key" data-k="sage">M</span><span>Cómo trabajamos</span></a></li>
       <li class="cases">
         <button type="button" id="menu-btn" aria-expanded="false" aria-controls="menu-panel" data-key="u"><span class="key" data-k="sand">U</span><span>Casos de uso</span><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
         <div class="panel-cases" id="menu-panel" hidden>
           <div><h3>Casos de uso</h3><ul>
-            <li><a href="operaciones.html" aria-current="page"><span>Operaciones</span><small>Qué falla en cada centro, en los flujos de trabajo y en la producción.</small></a></li>
-            <li><a href="adopcion-ia.html"><span>Adopción de IA</span><small>Dónde usar la IA, cómo mejorar con ella y qué necesita cada equipo.</small></a></li>
-            <li><a href="compromiso.html"><span>Compromiso de los empleados</span><small>Escucha a tu gente para conocer sus inquietudes y su compromiso con la empresa.</small></a></li>
-            <li><a href="puntos-de-venta.html"><span>Mejora en puntos de venta</span><small>¿Qué falla en tienda? ¿Qué se podría mejorar? ¿Cómo es el trato al cliente final?</small></a></li>
-            <li><a href="administracion.html"><span>Administración y facturación</span><small>Dónde se atascan facturas, cobros y contabilidad.</small></a></li>
-            <li><a href="comercial.html"><span>Procesos comerciales</span><small>¿Por qué no se llega a los objetivos comerciales?</small></a></li>
-            <li><a href="adquisiciones-e-inversion.html"><span>Adquisiciones e inversión</span><small>Cómo trabaja por dentro la empresa que compras o en la que inviertes.</small></a></li>
+            <li><a href="operaciones.html" aria-current="page"><span>Operaciones</span><small>Por qué un indicador no mejora en tus centros, turnos y procesos.</small></a></li>
+            <li><a href="innovacion.html"><span>Innovación</span><small>Qué necesita de verdad quien va a usar tu próximo proyecto.</small></a></li>
+            <li><a href="recursos-humanos.html"><span>Recursos humanos</span><small>Qué preocupa a tu gente y qué cambiar primero, con sus palabras.</small></a></li>
+            <li><a href="transformacion-digital.html"><span>Transformación digital</span><small>Qué hace falta para que un proyecto digital llegue al día a día.</small></a></li>
+            <li><a href="implementacion-ia.html"><span>Implementación de IA</span><small>Dónde aporta la IA y qué necesita cada equipo para usarla.</small></a></li>
           </ul></div>
           <div><h3>Para consultoras</h3><ul>
-            <li><a href="consultoras.html"><span>¿Eres consultora?</span><small>Usa la plataforma con la plantilla de tu cliente.</small></a></li>
+            <li><a href="consultoras.html"><span>¿Eres consultora?</span><small>Escuchamos contigo a todo el equipo de tu cliente.</small></a></li>
           </ul></div>
         </div>
       </li>
+      <li><a href="index.html#quienes-somos" data-key="q"><span class="key" data-k="mint">Q</span><span>Quiénes somos</span></a></li>
     </ul>
-    <a class="go" href="mailto:hola@socracy.es?subject=Hablemos%20de%20Socracy" data-key="h"><span>→ <span class="t">Hablamos 20 minutos</span></span><span class="key" data-k="mint">H</span></a>
+    <a class="go" href="#contacto" data-key="h"><span>→ <span class="t">Hablemos de tu reto</span><span class="t-s">Hablemos</span></span><span class="key" data-k="mint">H</span></a>
   </div>
 </header>
 
@@ -51,22 +52,42 @@
   <div class="content" role="main" id="contenido" tabindex="-1">
     <section class="sec page-hero" aria-labelledby="h1">
       <nav class="crumbs" aria-label="Migas"><a href="index.html">Inicio</a><span aria-hidden="true">/</span><a href="index.html#casos-de-uso">Casos de uso</a><span aria-hidden="true">/</span><span aria-current="page">Operaciones</span></nav>
-      <p class="tag mono"><span>Casos de uso</span></p>
-      <h1 id="h1">Operaciones</h1>
-      <p class="sub">Qué frena el trabajo en tus centros y turnos, contado por quien lo hace.</p>
+      <div class="b-case-hero">
+        <div>
+          <p class="tag mono"><span>Casos de uso</span></p>
+          <h1 id="h1">Operaciones</h1>
+          <p class="sub">Tus indicadores te dicen dónde falla. Tu equipo sabe por qué.</p>
+          <p class="page-p">Escuchamos a todo el equipo de tus centros y turnos, en días.</p>
+          <a class="btn btn-mail" href="#contacto"><span>Hablemos de tu reto</span><span class="key" data-k="mint">H</span></a>
+        </div>
+        <div class="b-art b-art-ink" aria-hidden="true"><canvas id="sites" width="90" height="90"></canvas></div>
+      </div>
     </section>
 
-    <section class="sec" id="problemas" data-anchor aria-labelledby="s-prob">
-      <div class="tag mono"><span class="n">01</span><span>Lo que suele pasar</span></div>
-      <h2 class="sec-h" id="s-prob">Problemas típicos que te ayudamos a resolver</h2>
-      <ul class="probs"><li class="prob"><span data-icon="site" data-fill="#0E4A3A"></span><div><h3>Cuellos de botella en los procesos</h3><p>El trabajo se atasca y no ves dónde. Quien lo hace cada día sabe qué paso lo frena y por qué.</p></div></li><li class="prob"><span data-icon="people" data-fill="#0E4A3A"></span><div><h3>Unos centros rinden más que otros</h3><p>Con medios parecidos, los resultados cambian. Tu gente sabe qué se hace distinto en cada sitio.</p></div></li><li class="prob"><span data-icon="chat" data-fill="#0E4A3A"></span><div><h3>Los problemas se repiten una y otra vez</h3><p>Se apaga el fuego y al poco vuelve. Quien está en primera línea sabe qué lo causa.</p></div></li><li class="prob"><span data-icon="map" data-fill="#0E4A3A"></span><div><h3>Los cambios no llegan al día a día</h3><p>Se aprueba una nueva forma de trabajar y todo sigue igual. Tu gente sabe qué la frena.</p></div></li><li class="prob"><span data-icon="eye" data-fill="#0E4A3A"></span><div><h3>La información se pierde entre equipos</h3><p>Cada área sabe una parte y le falta la otra. Tu gente te dice dónde se corta la comunicación.</p></div></li><li class="prob"><span data-icon="flag" data-fill="#0E4A3A"></span><div><h3>Tiempo perdido en tareas que no aportan</h3><p>Pasos repetidos, esperas y papeleo. Quien los sufre sabe cuáles sobran y por dónde empezar.</p></div></li></ul>
+    <section class="sec" id="retos" data-anchor aria-labelledby="s-prob">
+      <div class="tag mono"><span class="n">01</span><span>Retos típicos</span></div>
+      <h2 class="sec-h" id="s-prob">Retos típicos que te ayudamos a resolver</h2>
+      <ul class="probs"><li class="prob"><span data-icon="flag" data-fill="#0E4A3A"></span><div><h3>El indicador no mejora y no ves por qué</h3><p>El OEE, la merma o los plazos siguen igual. Quien hace el trabajo cada día sabe qué los frena.</p></div></li><li class="prob"><span data-icon="site" data-fill="#0E4A3A"></span><div><h3>Cuellos de botella en los procesos</h3><p>El trabajo se atasca y no ves dónde. Quien lo hace cada día sabe qué paso lo frena y por qué.</p></div></li><li class="prob"><span data-icon="people" data-fill="#0E4A3A"></span><div><h3>Unos centros rinden más que otros</h3><p>Con medios parecidos, los resultados cambian. Tu gente sabe qué se hace distinto en cada sitio.</p></div></li><li class="prob"><span data-icon="chat" data-fill="#0E4A3A"></span><div><h3>Los problemas se repiten una y otra vez</h3><p>Se apaga el fuego y al poco vuelve. Quien está en primera línea sabe qué lo causa.</p></div></li><li class="prob"><span data-icon="map" data-fill="#0E4A3A"></span><div><h3>Los cambios no llegan al día a día</h3><p>Se aprueba una nueva forma de trabajar y todo sigue igual. Tu gente sabe qué la frena.</p></div></li><li class="prob"><span data-icon="eye" data-fill="#0E4A3A"></span><div><h3>La información se pierde entre equipos</h3><p>Cada área sabe una parte y le falta la otra. Tu gente te dice dónde se corta la comunicación.</p></div></li></ul>
+    </section>
+
+    <section class="sec" id="preguntamos" data-anchor aria-labelledby="s-ask">
+      <h2 class="tag mono" id="s-ask"><span class="n">02</span><span>Así preguntamos</span></h2>
+      <div class="win b-asks" role="group" aria-label="Tres preguntas de ejemplo">
+        <div class="bar" aria-hidden="true"><svg viewBox="0 0 16 16"><rect x=".5" y=".5" width="15" height="15" fill="none" stroke="currentColor"/><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor"/></svg><i></i><svg viewBox="0 0 16 16"><rect x=".5" y=".5" width="15" height="15" fill="none" stroke="currentColor"/><rect x="4.5" y="4.5" width="7" height="7" fill="none" stroke="currentColor"/></svg></div>
+        <div class="body">
+          <span class="ex">Ejemplo</span>
+          <ol><li><span class="key" data-k="mint" aria-hidden="true">1</span><span>«¿Cuándo fue la última vez que la línea se paró? ¿Qué pasó y cuánto duró?»</span></li><li><span class="key" data-k="mint" aria-hidden="true">2</span><span>«Al empezar el turno, ¿qué tienes que hacer antes de poder trabajar?»</span></li><li><span class="key" data-k="mint" aria-hidden="true">3</span><span>«¿Qué cambiarías primero para terminar a tiempo?»</span></li></ol>
+          
+        </div>
+      </div>
     </section>
 
     <section class="sec" id="caso" data-anchor aria-labelledby="s-caso">
-      <div class="tag mono case-tag"><span class="n">02</span><span>Un caso</span><span class="ex case-note">Caso tipo, sin datos de ningún cliente</span></div>
+      <div class="tag mono case-tag"><span class="n">03</span><span>Un caso tipo</span></div>
       <h2 class="ex-h" id="s-caso">Pedidos que salían tarde: el problema estaba en el cambio de turno</h2>
+      <p class="b-sum">Se iban a cambiar los horarios <span aria-hidden="true">→</span> el turno de noche empezaba sin saber qué faltaba <span aria-hidden="true">→</span> se llevó a todos el cambio de turno de la planta que ya lo hacía bien</p>
       <div class="cs-start">
-        <div><h3 class="lbl">Punto de partida</h3><p>Una empresa de fabricación y distribución con dos plantas y un almacén central, unas 350 personas en tres turnos. Cada semana salían pedidos tarde. El director de operaciones creía que el turno de noche rendía menos y pensaba cambiar los horarios. Antes de hacerlo, quiso saber qué pasaba en cada centro.</p></div>
+        <div><h3 class="lbl">Punto de partida</h3><p>Una empresa de fabricación y distribución con dos plantas y un almacén central, unas 350 personas en tres turnos. Cada semana salían pedidos tarde. El director de operaciones barajaba cambiar los horarios del turno de noche. Antes de decidirlo, quiso escuchar a todo el equipo de los tres centros.</p></div>
         <div class="win"><div class="body"><span class="k">La pregunta</span><span class="q">«¿Qué te impide terminar a tiempo el trabajo de tu turno y qué cambiarías primero?»</span><span class="k">A quién</span><span>A toda la plantilla de los tres centros, en los tres turnos, de forma anónima.</span></div></div>
       </div>
 
@@ -76,12 +97,17 @@
 
       <h3 class="lbl sub-h">Qué se hizo</h3>
       <ol class="how3"><li><span class="n">1/3</span><span>Se llevó a los tres centros el cambio de turno de la planta que ya lo hacía bien: unos minutos juntos y una pizarra con lo pendiente.</span></li><li><span class="n">2/3</span><span>Cada turno pasó a dejar las máquinas preparadas y el material listo al acabar, con una lista sencilla que revisa el jefe de turno.</span></li><li><span class="n">3/3</span><span>Se puso un técnico de mantenimiento de guardia por la noche, con acceso a los repuestos que más se usan.</span></li></ol>
-      <div class="reco"><span class="mono">Después</span><p>El turno de noche empieza sabiendo qué hay pendiente y una avería pequeña se arregla esa misma noche. El director dejó a un lado el cambio de horarios.</p></div>
+      <div class="reco"><span class="mono">Después</span><p>El turno de noche empieza sabiendo qué hay pendiente y una avería pequeña se arregla esa misma noche. El cambio de horarios ya no hizo falta.</p></div>
+    </section>
+
+    <section class="sec" id="lo-que-te-llevas" data-anchor aria-labelledby="s-get">
+      <h2 class="tag mono" id="s-get"><span class="n">04</span><span>Lo que te llevas</span></h2>
+      <div class="b-get"><ol class="b-cols"><li><article class="card"><b>Qué falla y dónde</b><p>Por centro, turno y línea, y cuántas personas lo cuentan.</p></article></li><li><article class="card"><b>Por qué pasa</b><p>Las causas, con las palabras de quien lo vive.</p></article></li><li><article class="card"><b>Qué hacer primero</b><p>Ordenado según lo que aporta a tu indicador (OEE, plazos o merma) y lo que cuesta.</p></article></li></ol></div>
     </section>
     <section class="sec contact" id="contacto" data-anchor aria-labelledby="h-contacto">
       <div class="c-form">
-        <h2 id="h-contacto" class="c-h">Pregunta a quien hace el trabajo</h2>
-        <p>Cuéntanos qué te preocupa de tus centros y te explicamos cómo sería escuchar a toda tu gente. Si no encaja, te lo decimos.</p>
+        <h2 id="h-contacto" class="c-h">¿Qué indicador te está costando mover?</h2>
+        <p>Cuéntanoslo y te decimos cómo lo abordaríamos con todo tu equipo. Si no encaja, también te lo decimos.</p>
         <a class="btn btn-mail" href="mailto:hola@socracy.es?subject=Hablemos%20de%20Socracy%3A%20Operaciones" data-key="e"><span>Escríbenos</span><span class="key" data-k="mint">E</span></a>
         <div class="fields">
           <div class="field">
@@ -89,7 +115,6 @@
             <div class="addr"><a id="mail" href="mailto:hola@socracy.es?subject=Hablemos%20de%20Socracy%3A%20Operaciones" aria-describedby="mail-l">hola@socracy.es</a><button class="btn" type="button" id="copy" data-key="c" data-mail="hola@socracy.es"><span>Copiar</span><span class="key" data-k="mint">C</span></button></div>
           </div>
           <p class="status" id="status" role="status" aria-live="polite"></p>
-          
         </div>
       </div>
       <div class="c-art"><canvas id="plus" width="40" height="40" aria-hidden="true"></canvas></div>
@@ -102,15 +127,16 @@
     <div>
       <div class="wm">socracy</div>
       <div class="f-cols">
-        <div><h2>Casos de uso</h2><ul><li><a href="operaciones.html">Operaciones</a></li><li><a href="adopcion-ia.html">Adopción de IA</a></li><li><a href="compromiso.html">Compromiso de los empleados</a></li><li><a href="puntos-de-venta.html">Mejora en puntos de venta</a></li><li><a href="administracion.html">Administración y facturación</a></li><li><a href="comercial.html">Procesos comerciales</a></li><li><a href="adquisiciones-e-inversion.html">Adquisiciones e inversión</a></li></ul></div>
-        <div><h2>Socracy</h2><ul><li><a href="index.html#el-problema">El problema</a></li><li><a href="index.html#como-funciona">Cómo funciona</a></li><li><a href="como-funciona.html">Cómo funciona, en detalle</a></li><li><a href="consultoras.html">Para consultoras</a></li></ul></div>
+        <div><h2>Casos de uso</h2><ul><li><a href="operaciones.html">Operaciones</a></li><li><a href="innovacion.html">Innovación</a></li><li><a href="recursos-humanos.html">Recursos humanos</a></li><li><a href="transformacion-digital.html">Transformación digital</a></li><li><a href="implementacion-ia.html">Implementación de IA</a></li></ul></div>
+        <div><h2>Socracy</h2><ul><li><a href="index.html#el-problema">El problema</a></li><li><a href="index.html#como-funciona">Cómo trabajamos</a></li><li><a href="como-funciona.html">Cómo trabajamos, en detalle</a></li><li><a href="consultoras.html">Para consultoras</a></li><li><a href="index.html#quienes-somos">Quiénes somos</a></li></ul></div>
         <div><h2>Contacto</h2><ul><li><a href="mailto:hola@socracy.es?subject=Hablemos%20de%20Socracy">hola@socracy.es</a></li></ul></div>
       </div>
     </div>
-    <div class="legal">© 2026 Proyectos Merli SL<br><a href="privacidad">Privacidad</a> · <a href="aviso-legal">Aviso legal</a></div>
+    <div class="legal">© 2026 Proyectos Merli SL<br><a href="privacidad.html">Privacidad</a> · <a href="aviso-legal.html">Aviso legal</a></div>
   </div>
 </footer>
 
 <script src="socracy.js"></script>
+<script src="b.js"></script>
 </body>
 </html>

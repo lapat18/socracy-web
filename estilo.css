@@ -217,7 +217,7 @@ a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; 
 .status { min-height: 18px; font-family: var(--mono); font-size: 12px; color: var(--green); margin: 0; }
 .who-line { font-family: var(--mono); font-size: 12px; color: var(--ink-2); text-transform: uppercase; }
 .c-art { background: var(--green); display: grid; place-items: center; min-height: 420px; }
-.c-art canvas { width: 60%; aspect-ratio: 1; image-rendering: pixelated; }
+.c-art canvas { width: 60%; aspect-ratio: 1; }
 @media (max-width: 860px) { .contact { grid-template-columns: 1fr; } .c-art { min-height: 140px; } }
 
 /* ---------- Footer ---------- */
@@ -249,7 +249,7 @@ footer { margin-top: var(--frame); background: var(--ink); color: var(--on-dark)
 @media (max-width: 900px) { .nav .cases { margin-left: auto; padding-right: 12px; } .nav .go { margin-left: 0; } .panel-cases { left: auto; right: -60px; transform: none; grid-template-columns: 1fr; } .panel-cases > div + div { border-left: 0; border-top: 1px solid var(--line); } }
 
 /* ---------- Side panel: people + cases link ---------- */
-.people { width: 100%; aspect-ratio: 52 / 84; border: 1px solid var(--line); display: block; image-rendering: pixelated; background: var(--panel); }
+.people { width: 100%; aspect-ratio: 52 / 84; border: 1px solid var(--line); display: block; background: var(--panel); }
 .people-cap { margin: -6px 0 0; font-family: var(--mono); font-size: 11.5px; color: var(--ink-2); }
 .cases-link { display: grid; gap: 6px; padding: 12px; border: 1px solid var(--line); background: var(--mint); text-decoration: none; transition: background .2s; }
 .cases-link:hover { background: var(--green-2); }
@@ -326,7 +326,7 @@ table.ex-t { width: 100%; border-collapse: collapse; min-width: 640px; }
 .tablist button[aria-selected="true"]::after { width: var(--p, 0%); }
 .tablist button:focus-visible { outline: 2px solid var(--green-2); outline-offset: -4px; }
 .tabpanel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; padding: clamp(28px, 4vw, 52px) clamp(18px, 4vw, 56px); min-height: 320px; }
-.tabpanel canvas { width: 100%; max-width: 420px; aspect-ratio: 60 / 34; image-rendering: pixelated; justify-self: center; }
+.tabpanel canvas { width: 100%; max-width: 420px; aspect-ratio: 60 / 34; justify-self: center; }
 .tabpanel h3 { margin: 0 0 14px; font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.04; letter-spacing: -0.03em; }
 .tabpanel p { margin: 0; color: var(--ink-2); max-width: 44ch; }
 .tabpanel .in { animation: in .5s var(--ease) both; }

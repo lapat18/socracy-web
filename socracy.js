@@ -89,7 +89,7 @@
 
   /* Facts and guarantees (home) */
   var FACTS = [
-    ['people', 'Toda la plantilla', 'O los equipos que tú elijas.'],
+    ['people', 'Todo el equipo', 'Cada persona, o los equipos que elijas.'],
     ['link', 'Sin instalar nada', 'Un enlace por persona, móvil u ordenador.'],
     ['lang', 'Español e inglés', 'La entrevista, en español o en inglés.'],
     ['lock', 'Datos en la UE', 'Con contrato y sin entrenar modelos.'],
@@ -100,8 +100,8 @@
   var GUAR = [
     ['Evaluación', 'green-2', 'Nadie es evaluado', 'Lo que se cuenta nunca sirve para juzgar ni sancionar a nadie.'],
     ['Anonimato', 'sage', 'Siempre se explica antes', 'Cada persona sabe si es anónimo o identificado antes de empezar.'],
-    ['Datos', 'mint', 'Tus datos, en la UE', 'Tratados con contrato y nunca usados para entrenar modelos de IA.'],
-    ['Trato', 'sand', 'Marta y Javier, siempre', 'Llevan tu cuenta de principio a fin, sin intermediarios.']
+    ['Datos', 'mint', 'Tus datos, con contrato', 'Tratados con contrato y nunca usados para entrenar modelos de IA.'],
+    ['Trato', 'sand', 'Equipo, siempre', 'Un socio lleva tu reto de principio a fin, sin intermediarios.']
   ];
   if ($('guar')) $('guar').innerHTML = GUAR.map(function (g, i) { return '<div class="g"><span class="mono"><span class="key" data-k="' + g[1] + '">' + (i + 1) + '</span>' + g[0] + '</span><b>' + g[2] + '</b><span>' + g[3] + '</span></div>'; }).join('');
 
@@ -132,7 +132,7 @@
   var STEPS = [
     ['Eliges a quién escuchamos', 'Toda la plantilla o los equipos que tú decidas: un almacén, un turno, una planta. Antes de empezar lo explicamos a la gente y, si hace falta, al comité de empresa.', ['people', 'chat']],
     ['Cada persona, un enlace', 'Desde el móvil o el ordenador, cuando le venga bien, en español o en inglés. Un entrevistador de IA pregunta, escucha y repregunta hasta entender cómo se hace el trabajo de verdad. No es un formulario.', ['link', 'chat', 'lang']],
-    ['El diagnóstico, en tu mesa', 'Marta y Javier, los socios, leen todo lo escuchado y te entregan el diagnóstico: qué falla, por qué pasa y qué mejorar primero. Cada conclusión dice cuántas personas lo plantean y se apoya en frases anónimas.', ['map', 'people']]
+    ['El diagnóstico, en tu mesa', 'Los socios leen todo lo escuchado y te entregan el diagnóstico: qué falla, por qué pasa y qué mejorar primero. Cada conclusión dice cuántas personas lo plantean y se apoya en frases anónimas.', ['map', 'people']]
   ];
   var cur = 0, method = $('method');
   function show(i, anim) {
@@ -207,46 +207,66 @@
     req();
   }
 
-  /* Side panel: the whole workforce, heard one by one. Each figure lights up after its conversation,
-     a speech mark blinks over the one being interviewed, then they group by theme and start again. */
-  var P = ['01100','11110','11110','01100','00000','11110','11111','11111'];
+
+  /* Lienzos de trazo limpio: se dibujan a la resolución de la pantalla, en píxeles CSS */
+  function hd(c, draw) {
+    var ctx = c.getContext('2d'), W = 0, H = 0;
+    function fit() { var r = c.getBoundingClientRect(), d = Math.min(2, window.devicePixelRatio || 1); W = r.width; H = r.height; if (!W || !H) return; c.width = Math.round(W * d); c.height = Math.round(H * d); ctx.setTransform(d, 0, 0, d, 0, 0); }
+    fit(); addEventListener('resize', fit);
+    loop(c, function (t) { if (!W || !H) fit(); if (!W || !H) return; ctx.clearRect(0, 0, W, H); draw(ctx, W, H, t); });
+  }
+  function ease(k) { k = Math.max(0, Math.min(1, k)); return k * k * (3 - 2 * k); }
+  function dot(x, cx, cy, r, fill, stroke, lw) { x.beginPath(); x.arc(cx, cy, r, 0, Math.PI * 2); if (fill) { x.fillStyle = fill; x.fill(); } if (stroke) { x.strokeStyle = stroke; x.lineWidth = lw || 1; x.stroke(); } }
+  function alpha(hex, a) { var n = parseInt(hex.slice(1), 16); return 'rgba(' + (n >> 16) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')'; }
+
+  /* Lateral: todo el equipo, escuchado uno a uno; luego se agrupa por temas y vuelve a empezar */
   var pc = $('people');
   if (pc && pc.offsetParent !== null) {
-    var px = pc.getContext('2d'), COLS_N = 7, ROWS_N = 8, CW = 7, CH = 10, N = COLS_N * ROWS_N;
-    var order = []; for (var i = 0; i < N; i++) order.push(i);
+    var PC = 7, PR = 8, PN = PC * PR, order = [];
+    for (var i = 0; i < PN; i++) order.push(i);
     order.sort(function (a, b) { return rand(a, 1, 4) - rand(b, 1, 4); });
     var theme = order.map(function (k) { return Math.floor(rand(k, 3, 9) * 3); });
     var counter = $('people-n');
-    loop(pc, function (t) {
-      var cycle = 26, ph = t % cycle, heard = Math.min(N, Math.floor(ph / 18 * N)), grouped = ph > 19;
-      px.fillStyle = C.w; px.fillRect(0, 0, pc.width, pc.height);
-      for (var r = 0; r < N; r++) {
-        var k = r, idx = order.indexOf(k), done = idx < heard, active = idx === heard && !grouped;
-        var col = grouped ? C.g : done ? C.g2 : C.faint;
-        if (grouped) col = [C.g, C.g2, C.sage][theme[idx]];
-        var gx = (k % COLS_N) * CW + 2, gy = Math.floor(k / COLS_N) * CH + 3;
-        px.fillStyle = col;
-        for (var yy = 0; yy < P.length; yy++) for (var xx = 0; xx < 5; xx++) if (P[yy][xx] === '1') px.fillRect(gx + xx, gy + yy, 1, 1);
-        if (active && Math.floor(t * 3) % 2 === 0) { px.fillStyle = C.ink; px.fillRect(gx + 4, gy - 2, 3, 2); px.fillRect(gx + 4, gy, 1, 1); }
+    hd(pc, function (x, w, h, t) {
+      var ph = t % 26, heard = Math.min(PN, Math.floor(ph / 18 * PN)), grouped = ph > 19, cw = w / PC, ch = h / PR, r = Math.min(cw, ch) * 0.26;
+      for (var k = 0; k < PN; k++) {
+        var idx = order.indexOf(k), done = idx < heard, active = idx === heard && !grouped;
+        var cx = (k % PC + 0.5) * cw, cy = (Math.floor(k / PC) + 0.5) * ch;
+        var col = grouped ? [C.g, C.g2, C.sage][theme[idx]] : done ? C.g2 : null;
+        dot(x, cx, cy, r, col, col ? null : C.sage, 1.2);
+        if (active) { var a = (t * 1.2) % 1; dot(x, cx, cy, r + a * r * 1.6, null, alpha(C.g, 1 - a), 1.2); }
       }
-      if (counter) counter.textContent = grouped ? 'Agrupado por temas' : 'Conversaciones: ' + heard + ' de ' + N;
+      if (counter) counter.textContent = grouped ? 'Agrupado por temas' : 'Escuchadas: ' + heard + ' de ' + PN;
     });
   }
 
+  /* Qué hacemos: muchas voces que llegan a una sola respuesta */
   var v = $('voices');
-  function field(w, h, t, x, y, seed) {
-    var p = (Math.sin(t * 0.45 - 1.2) + 1) / 2, e = p * p * (3 - 2 * p);
-    var noise = rand(Math.floor(x / 2), Math.floor(y / 2), seed + Math.floor(t * 1.6)) * 0.95;
-    var colW = w / 3, cx = x % colW, inCol = cx > colW * 0.14 && cx < colW * 0.86;
-    var rowH = h / 9, row = Math.floor(y / rowH), ry = (y % rowH) / rowH;
-    var ci = Math.min(2, Math.floor(x / colW)), filled = row < [7, 5, 3][ci] + 1;
-    var struct = inCol && ry > 0.18 && ry < 0.82 && filled && y > h * 0.06 ? 0.92 : 0.04;
-    return noise * (1 - e) + struct * e;
+  if (v) {
+    var VS = [];
+    for (var i = 0; i < 30; i++) VS.push({ c: i % 5, j: rand(i, 2, 8), o: rand(i, 5, 1) });
+    hd(v, function (x, w, h, t) {
+      var n = w < 520 ? 16 : 30, T = 10, ph = t % T, fade = 1 - ease((ph - 8.6) / 1.2), hx = w * 0.7, hy = h / 2, arrived = 0;
+      x.globalAlpha = fade; x.lineCap = 'round';
+      for (var i = 0; i < n; i++) {
+        var s = VS[i], sx = w * (0.04 + ((i * 0.618 + s.j * 0.35) % 1) * 0.28), sy = 16 + ((i + 0.5) / n) * (h - 32) + (s.o - 0.5) * 6;
+        var t0 = 0.3 + s.o * 3, k = ease((ph - t0) / 1.6), mx = sx + (hx - sx) * 0.55;
+        if (k > 0) {
+          x.beginPath(); x.moveTo(sx, sy);
+          for (var q = 1; q <= 32 * k; q++) { var u = q / 32, a = 1 - u; x.lineTo(a * a * a * sx + 3 * a * a * u * mx + 3 * a * u * u * mx + u * u * u * hx, a * a * a * sy + 3 * a * a * u * sy + 3 * a * u * u * hy + u * u * u * hy); }
+          x.strokeStyle = alpha(C.g, k < 1 ? 0.45 : 0.16); x.lineWidth = 1.2; x.stroke();
+          if (k < 1) { var u2 = k, a2 = 1 - u2; dot(x, a2 * a2 * a2 * sx + 3 * a2 * a2 * u2 * mx + 3 * a2 * u2 * u2 * mx + u2 * u2 * u2 * hx, a2 * a2 * a2 * sy + 3 * a2 * a2 * u2 * sy + 3 * a2 * u2 * u2 * hy + u2 * u2 * u2 * hy, 2.6, C.g2); }
+          else arrived++;
+        }
+        dot(x, sx, sy, 4, k >= 1 ? C.g2 : C.w, k >= 1 ? null : C.sage, 1.2);
+      }
+      var full = arrived / n, out = ease((ph - 5.6) / 1.4), ex = hx + (w * 0.94 - hx) * out;
+      if (out > 0) { x.beginPath(); x.moveTo(hx, hy); x.lineTo(ex, hy); x.strokeStyle = C.g; x.lineWidth = 3; x.stroke(); }
+      if (out >= 1) { dot(x, w * 0.94, hy, 9, C.g); x.beginPath(); x.moveTo(w * 0.94 - 4, hy); x.lineTo(w * 0.94 - 1, hy + 3); x.lineTo(w * 0.94 + 4.5, hy - 3.5); x.strokeStyle = C.w; x.lineWidth = 2; x.stroke(); }
+      dot(x, hx, hy, 5 + full * 6, C.g);
+      x.globalAlpha = 1;
+    });
   }
-  if (v) { var vx = v.getContext('2d'); loop(v, function (t) {
-    var w = v.width, h = v.height; vx.fillStyle = C.ink; vx.fillRect(0, 0, w, h);
-    for (var y = 0; y < h; y++) for (var x = 0; x < w; x++) { var val = field(w, h, t + 2, x, y, 7); if (dith(val, x, y)) { vx.fillStyle = val > 0.8 ? C.g2 : (rand(x, y, 3) > 0.7 ? C.mint : C.mid); vx.fillRect(x, y, 1, 1); } }
-  }); }
 
 
   /* Problema: de lo que cuentan unos pocos a lo que cuenta toda la plantilla */
@@ -277,43 +297,40 @@
     }
   }
 
-  var m = $('m-canvas');
-  if (m) { var mx = m.getContext('2d'); loop(m, function (t) {
-    var w = m.width, h = m.height; mx.fillStyle = C.ink; mx.fillRect(0, 0, w, h);
-    for (var i = 0; i < 7; i++) { var a = t * (0.4 + i * 0.07) + i * 0.9, r = 4 + i * 1.7;
-      var x = Math.round(w / 2 + Math.cos(a) * r), y = Math.round(h / 2 + Math.sin(a * 1.3) * r * 0.8);
-      mx.fillStyle = i % 3 ? C.w : C.g2; mx.fillRect(x, y, 2, 2);
-      mx.fillStyle = C.mid; mx.fillRect(Math.round((x + w / 2) / 2), Math.round((y + h / 2) / 2), 1, 1); }
-    mx.fillStyle = C.g2; mx.fillRect(w / 2 - 1, h / 2 - 1, 3, 3);
-  }); }
+  /* Por qué Socracy: rápido, fiable y cercano; tres círculos que se acercan hasta compartir el centro */
+  [].forEach.call(document.querySelectorAll('canvas.b-plus'), function (c) {
+    hd(c, function (x, w, h, t) {
+      var cx = w / 2, cy = h / 2 + h * 0.03, r = Math.min(w, h) * 0.24, k = ease((Math.sin(t * 0.7) + 1) / 2), d = r * (1.05 - k * 0.55);
+      var P3 = [0, 1, 2].map(function (i) { var a = -Math.PI / 2 + i * Math.PI * 2 / 3; return [cx + Math.cos(a) * d, cy + Math.sin(a) * d]; });
+      x.save(); x.beginPath(); x.arc(P3[0][0], P3[0][1], r, 0, Math.PI * 2); x.clip(); x.beginPath(); x.arc(P3[1][0], P3[1][1], r, 0, Math.PI * 2); x.clip();
+      x.beginPath(); x.arc(P3[2][0], P3[2][1], r, 0, Math.PI * 2); x.fillStyle = alpha(C.mint, 0.25 + k * 0.6); x.fill(); x.restore();
+      P3.forEach(function (p) { dot(x, p[0], p[1], r, null, C.w, 1.6); });
+    });
+  });
 
+  /* Contacto: un bocadillo que se escribe solo */
   var pl = $('plus');
-  if (pl) { var pp = pl.getContext('2d'); loop(pl, function (t) {
-    pp.clearRect(0, 0, pl.width, pl.height);
-    [[20, 20, 6], [33, 9, 3], [8, 32, 3], [31, 31, 2], [7, 8, 2]].forEach(function (c, i) {
-      if (!reduce && Math.sin(t * 1.8 + i * 1.3) < -0.5) return;
-      pp.fillStyle = i ? C.mint : C.w; var s = c[2];
-      pp.fillRect(c[0] - s, c[1], s * 2 + 1, 1); pp.fillRect(c[0], c[1] - s, 1, s * 2 + 1);
-      if (s > 3) pp.fillRect(c[0] - 1, c[1] - 1, 3, 3);
-    });
-  }); }
+  if (pl) hd(pl, function (x, w, h, t) {
+    var s = Math.min(w, h), bw = s * 0.76, bh = s * 0.5, bx = (w - bw) / 2, by = (h - bh) / 2 - s * 0.06, rr = s * 0.07, ph = t % 6.4;
+    x.lineJoin = 'round'; x.lineCap = 'round';
+    x.beginPath(); x.moveTo(bx + rr, by); x.lineTo(bx + bw - rr, by); x.arcTo(bx + bw, by, bx + bw, by + rr, rr); x.lineTo(bx + bw, by + bh - rr); x.arcTo(bx + bw, by + bh, bx + bw - rr, by + bh, rr);
+    x.lineTo(bx + bw * 0.34, by + bh); x.lineTo(bx + bw * 0.16, by + bh + s * 0.13); x.lineTo(bx + bw * 0.2, by + bh); x.lineTo(bx + rr, by + bh); x.arcTo(bx, by + bh, bx, by + bh - rr, rr); x.lineTo(bx, by + rr); x.arcTo(bx, by, bx + rr, by, rr); x.closePath();
+    x.strokeStyle = C.w; x.lineWidth = Math.max(1.5, s * 0.018); x.stroke();
+    if (ph < 2.6) { for (var i = 0; i < 3; i++) { var b = Math.max(0, Math.sin(t * 5 - i * 0.9)); dot(x, w / 2 + (i - 1) * s * 0.11, by + bh / 2 - b * s * 0.025, s * 0.028, alpha(C.w, 0.45 + b * 0.55)); } }
+    else { var f = 1 - ease((ph - 5.6) / 0.8); x.strokeStyle = alpha(C.mint, f); x.lineWidth = Math.max(2, s * 0.026);
+      [[0.62, 0], [0.42, 0.7]].forEach(function (L, i) { var k = ease((ph - 2.6 - L[1]) / 0.9); if (k <= 0) return; var y = by + bh * (0.36 + i * 0.3), x0 = bx + bw * 0.16; x.beginPath(); x.moveTo(x0, y); x.lineTo(x0 + bw * L[0] * k, y); x.stroke(); }); }
+  });
 
-  /* Sites map for role pages: three sites, problems blink red-ish (sand) until the fix travels from the site that solved it */
+  /* Operaciones: tres centros; la solución de uno viaja a los otros dos */
   var sm = $('sites');
-  if (sm) { var sx = sm.getContext('2d'); loop(sm, function (t) {
-    var w = sm.width, h = sm.height; sx.fillStyle = C.ink; sx.fillRect(0, 0, w, h);
-    for (var gy = 0; gy < h; gy += 4) for (var gx = (gy / 4) % 2 * 2; gx < w; gx += 4) { sx.fillStyle = '#18221D'; sx.fillRect(gx, gy, 1, 1); }
-    var sites = [[0.42, 0.62], [0.62, 0.3], [0.8, 0.66]].map(function (p) { return [Math.round(w * p[0]), Math.round(h * p[1])]; }), ph = (t % 9) / 9;
-    var S = ['0001111000','0011111100','0111111110','1111111111','1100110011','1100110011','1111111111'];
-    sites.forEach(function (s, i) {
-      var solved = i === 1 || ph > 0.55 + i * 0.12;
-      for (var yy = 0; yy < S.length; yy++) for (var xx = 0; xx < 10; xx++) if (S[yy][xx] === '1') { sx.fillStyle = C.mid; sx.fillRect(s[0] - 5 + xx, s[1] - 4 + yy, 1, 1); }
-      sx.fillStyle = solved ? C.g2 : C.sand; sx.fillRect(s[0] - 1, s[1] - 7, 3, 2);
-    });
-    var from = sites[1];
-    [0, 2].forEach(function (j, n) { var to = sites[j], k = Math.min(1, Math.max(0, (ph - 0.2 - n * 0.12) / 0.35));
-      if (k > 0 && k < 1) for (var d = 0; d < 3; d++) { var kk = Math.max(0, k - d * 0.04); sx.fillStyle = d ? C.mid : C.w; sx.fillRect(Math.round(from[0] + (to[0] - from[0]) * kk), Math.round(from[1] - 6 + (to[1] - from[1]) * kk), 2, 2); } });
-  }); }
+  if (sm) hd(sm, function (x, w, h, t) {
+    x.fillStyle = C.ink; x.fillRect(0, 0, w, h);
+    var s = Math.min(w, h), ph = (t % 9) / 9, sites = [[0.3, 0.64], [0.55, 0.3], [0.78, 0.66]].map(function (p) { return [w * p[0], h * p[1]]; }), from = sites[1];
+    [0, 2].forEach(function (j) { var to = sites[j]; x.beginPath(); x.moveTo(from[0], from[1]); x.quadraticCurveTo((from[0] + to[0]) / 2, Math.min(from[1], to[1]) - s * 0.08, to[0], to[1]); x.strokeStyle = alpha(C.mint, 0.18); x.lineWidth = 1; x.setLineDash([3, 5]); x.stroke(); x.setLineDash([]); });
+    [0, 2].forEach(function (j, n) { var to = sites[j], k = ease((ph - 0.2 - n * 0.12) / 0.35); if (k <= 0 || k >= 1) return; var cx = (from[0] + to[0]) / 2, cy = Math.min(from[1], to[1]) - s * 0.08, a = 1 - k;
+      dot(x, a * a * from[0] + 2 * a * k * cx + k * k * to[0], a * a * from[1] + 2 * a * k * cy + k * k * to[1], s * 0.022, C.w); });
+    sites.forEach(function (p, i) { var solved = i === 1 || ph > 0.55 + i * 0.12; dot(x, p[0], p[1], s * 0.075, null, C.mid, 1.4); dot(x, p[0], p[1], s * 0.032, solved ? C.g2 : C.sand); });
+  });
 
 
   /* ---------- Tabs «Cómo funciona»: auto-advance with progress, pause on interaction ---------- */
@@ -337,21 +354,17 @@
       if (!paused) { var k = Math.min(1, (now - start) / DUR); tabs[cur2].style.setProperty('--p', (k * 100) + '%'); if (k >= 1) sel(cur2 + 1, false); }
       requestAnimationFrame(tick);
     })(performance.now());
-    if (tcv) { var tx2 = tcv.getContext('2d'); var R = ['00110','01001','10000','10000','01001','00110']; R = ['01110','10001','10001','10001','01110'];
-      loop(tcv, function (t) {
-        var w = tcv.width, h = tcv.height; tx2.fillStyle = C.w; tx2.fillRect(0, 0, w, h);
-        var cols = 10, rows = 3, gx = 6, gy = 10, ox = 1, oy = 3, tt = (performance.now() - start) / DUR;
-        for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
-          var idx = r * cols + c, col = C.faint;
-          if (cur2 === 0) col = idx < Math.floor(tt * 34) ? C.g2 : C.faint;
-          if (cur2 === 1) col = [C.g, C.g2, C.sage][(rand(c, r, 5) * 3) | 0];
-          if (cur2 === 1 && tt < 0.25) col = idx % 3 === 0 ? C.g2 : C.faint;
-          if (cur2 === 2) col = r === 0 ? C.g : (r === 1 ? C.sage : C.faint);
-          if (cur2 === 2 && r === 0 && c === Math.floor((t * 4) % cols)) col = C.ink;
-          tx2.fillStyle = col; for (var yy = 0; yy < 5; yy++) for (var xx = 0; xx < 5; xx++) if (R[yy][xx] === '1') tx2.fillRect(ox + c * gx + xx, oy + r * gy + yy, 1, 1);
-        }
-      });
-    }
+    if (tcv) hd(tcv, function (x, w, h, t) {
+      var cols = 10, rows = 3, cw = w / cols, ch = h / rows, r = Math.min(cw, ch) * 0.3, tt = (performance.now() - start) / DUR;
+      for (var rr = 0; rr < rows; rr++) for (var c = 0; c < cols; c++) {
+        var idx = rr * cols + c, col = null;
+        if (cur2 === 0) col = idx < Math.floor(tt * 34) ? C.g2 : null;
+        if (cur2 === 1) col = tt < 0.25 ? (idx % 3 === 0 ? C.g2 : null) : [C.g, C.g2, C.sage][(rand(c, rr, 5) * 3) | 0];
+        if (cur2 === 2) col = rr === 0 ? C.g : (rr === 1 ? C.sage : null);
+        if (cur2 === 2 && rr === 0 && c === Math.floor((t * 4) % cols)) col = C.ink;
+        dot(x, (c + 0.5) * cw, (rr + 0.5) * ch, r, col, col ? null : C.sage, 1.2);
+      }
+    });
   }
 
   var no = $('noise');

@@ -7,15 +7,17 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://socracy.es/consultoras.html">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Socracy para consultoras · La plataforma para entrevistar a toda la plantilla de tu cliente</title>
-<meta name="description" content="Entrevistamos a toda la plantilla de tu cliente mientras tu equipo avanza en el proyecto.">
+<title>Socracy para consultoras · Todo el equipo de tu cliente, escuchado en días</title>
+<meta name="description" content="Escuchamos a todo el equipo de tu cliente en días, mientras tu equipo avanza en el proyecto. La relación y el diagnóstico siguen siendo tuyos.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Socracy">
 <meta property="og:locale" content="es_ES">
-<meta property="og:title" content="Socracy para consultoras · La plataforma para entrevistar a toda la plantilla de tu cliente">
-<meta property="og:description" content="Entrevistamos a toda la plantilla de tu cliente mientras tu equipo avanza en el proyecto.">
+<meta property="og:url" content="https://socracy.es/consultoras.html">
+<meta property="og:title" content="Socracy para consultoras · Todo el equipo de tu cliente, escuchado en días">
+<meta property="og:description" content="Escuchamos a todo el equipo de tu cliente en días, mientras tu equipo avanza en el proyecto. La relación y el diagnóstico siguen siendo tuyos.">
 <link rel="stylesheet" href="fuentes/fuentes.css">
 <link rel="stylesheet" href="estilo.css">
+<link rel="stylesheet" href="b.css">
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -24,26 +26,25 @@
     <a class="brand" href="index.html" aria-label="socracy, inicio"><b>socracy</b></a>
     <ul>
       <li><a href="index.html#el-problema" data-key="p"><span class="key" data-k="green-2">P</span><span>El problema</span></a></li>
-      <li><a href="index.html#como-funciona" data-key="m"><span class="key" data-k="sage">M</span><span>Cómo funciona</span></a></li>
+      <li><a href="index.html#como-funciona" data-key="m"><span class="key" data-k="sage">M</span><span>Cómo trabajamos</span></a></li>
       <li class="cases">
         <button type="button" id="menu-btn" aria-expanded="false" aria-controls="menu-panel" data-key="u"><span class="key" data-k="sand">U</span><span>Casos de uso</span><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
         <div class="panel-cases" id="menu-panel" hidden>
           <div><h3>Casos de uso</h3><ul>
-            <li><a href="operaciones.html"><span>Operaciones</span><small>Qué falla en cada centro, en los flujos de trabajo y en la producción.</small></a></li>
-            <li><a href="adopcion-ia.html"><span>Adopción de IA</span><small>Dónde usar la IA, cómo mejorar con ella y qué necesita cada equipo.</small></a></li>
-            <li><a href="compromiso.html"><span>Compromiso de los empleados</span><small>Escucha a tu gente para conocer sus inquietudes y su compromiso con la empresa.</small></a></li>
-            <li><a href="puntos-de-venta.html"><span>Mejora en puntos de venta</span><small>¿Qué falla en tienda? ¿Qué se podría mejorar? ¿Cómo es el trato al cliente final?</small></a></li>
-            <li><a href="administracion.html"><span>Administración y facturación</span><small>Dónde se atascan facturas, cobros y contabilidad.</small></a></li>
-            <li><a href="comercial.html"><span>Procesos comerciales</span><small>¿Por qué no se llega a los objetivos comerciales?</small></a></li>
-            <li><a href="adquisiciones-e-inversion.html"><span>Adquisiciones e inversión</span><small>Cómo trabaja por dentro la empresa que compras o en la que inviertes.</small></a></li>
+            <li><a href="operaciones.html"><span>Operaciones</span><small>Por qué un indicador no mejora en tus centros, turnos y procesos.</small></a></li>
+            <li><a href="innovacion.html"><span>Innovación</span><small>Qué necesita de verdad quien va a usar tu próximo proyecto.</small></a></li>
+            <li><a href="recursos-humanos.html"><span>Recursos humanos</span><small>Qué preocupa a tu gente y qué cambiar primero, con sus palabras.</small></a></li>
+            <li><a href="transformacion-digital.html"><span>Transformación digital</span><small>Qué hace falta para que un proyecto digital llegue al día a día.</small></a></li>
+            <li><a href="implementacion-ia.html"><span>Implementación de IA</span><small>Dónde aporta la IA y qué necesita cada equipo para usarla.</small></a></li>
           </ul></div>
           <div><h3>Para consultoras</h3><ul>
-            <li><a href="consultoras.html" aria-current="page"><span>¿Eres consultora?</span><small>Usa la plataforma con la plantilla de tu cliente.</small></a></li>
+            <li><a href="consultoras.html" aria-current="page"><span>¿Eres consultora?</span><small>Escuchamos contigo a todo el equipo de tu cliente.</small></a></li>
           </ul></div>
         </div>
       </li>
+      <li><a href="index.html#quienes-somos" data-key="q"><span class="key" data-k="mint">Q</span><span>Quiénes somos</span></a></li>
     </ul>
-    <a class="go" href="mailto:hola@socracy.es?subject=Hablemos%20de%20Socracy" data-key="h"><span>→ <span class="t">Hablamos 20 minutos</span></span><span class="key" data-k="mint">H</span></a>
+    <a class="go" href="#contacto" data-key="h"><span>→ <span class="t">Hablemos de tu reto</span><span class="t-s">Hablemos</span></span><span class="key" data-k="mint">H</span></a>
   </div>
 </header>
 
@@ -51,23 +52,35 @@
   <div class="content" role="main" id="contenido" tabindex="-1">
     <section class="sec page-hero" aria-labelledby="h1">
       <nav class="crumbs" aria-label="Migas"><a href="index.html">Inicio</a><span aria-hidden="true">/</span><a href="index.html#casos-de-uso">Casos de uso</a><span aria-hidden="true">/</span><span aria-current="page">Para consultoras</span></nav>
-      <p class="tag mono"><span>Para consultoras</span></p>
-      <h1 id="h1">Agiliza las entrevistas de tus proyectos</h1>
-      <p class="sub">Entrevistamos a toda la plantilla de tu cliente mientras tu equipo avanza en el proyecto.</p>
-      <p class="page-p">En un proyecto de consultoría, las entrevistas ocupan semanas de agenda y solo llegan a unos pocos mandos. El resto de la plantilla, que es quien hace el trabajo, se queda sin contar lo que sabe. Con Socracy, cada persona conversa con nuestro entrevistador de IA cuando le viene bien, todas a la vez, y tú llegas al diagnóstico con lo que dice toda la plantilla.</p>
+      <div class="b-case-hero">
+        <div>
+          <p class="tag mono"><span>Para consultoras</span></p>
+          <h1 id="h1">Todo el equipo de tu cliente, escuchado en días</h1>
+          <p class="sub">Tú pones el diagnóstico y la relación. Nosotros escuchamos a todo el equipo mientras avanzas en el proyecto.</p>
+          <p class="page-p">Tú sabes hacer un diagnóstico. Lo que no siempre cabe en la agenda de un proyecto es hablar con cada persona del equipo. Nosotros lo hacemos en días, con entrevistadores de IA preparados para el reto de tu cliente y con nuestra experiencia para ordenar lo escuchado. Tú llegas a los talleres y al comité con lo que cuenta todo el equipo.</p>
+          <a class="btn btn-mail" href="#contacto"><span>Cuéntanos tu próximo proyecto</span><span class="key" data-k="mint">H</span></a>
+        </div>
+        <div class="b-art" aria-hidden="true"><span data-icon="people" data-fill="#0E4A3A"></span></div>
+      </div>
     </section>
 
     <section class="sec" id="para-que" data-anchor aria-labelledby="s-para">
       <div class="tag mono"><span class="n">01</span><span>Para qué te sirve</span></div>
       <h2 class="sec-h" id="s-para">Cuándo te ayudamos en un proyecto</h2>
-      <ul class="probs"><li class="prob"><span data-icon="flag" data-fill="#0E4A3A"></span><div><h3>Arrancar el diagnóstico con toda la plantilla</h3><p>Escuchas a todos desde el principio, no solo a los mandos que caben en la agenda.</p></div></li><li class="prob"><span data-icon="site" data-fill="#0E4A3A"></span><div><h3>Contrastar lo que cree la dirección</h3><p>Compruebas si la idea de partida del comité coincide con lo que cuenta quien hace el trabajo.</p></div></li><li class="prob"><span data-icon="people" data-fill="#0E4A3A"></span><div><h3>Preparar talleres y entrevistas en persona</h3><p>Llegas con los temas que más se repiten y las frases de la gente, y dedicas tu tiempo a profundizar.</p></div></li><li class="prob"><span data-icon="chat" data-fill="#0E4A3A"></span><div><h3>Escuchar a varios centros a la vez</h3><p>Cada persona conversa desde el móvil o el ordenador, sin que tu equipo tenga que ir a cada centro.</p></div></li><li class="prob"><span data-icon="map" data-fill="#0E4A3A"></span><div><h3>Preparar un cambio antes de implantarlo</h3><p>Preguntas a quienes tendrán que hacerlo funcionar qué les puede frenar.</p></div></li><li class="prob"><span data-icon="eye" data-fill="#0E4A3A"></span><div><h3>Apoyar tu recomendación en la voz de la gente</h3><p>Presentas al comité cuántas personas dicen cada cosa, con sus propias frases.</p></div></li></ul>
+      <ul class="probs"><li class="prob"><span data-icon="flag" data-fill="#0E4A3A"></span><div><h3>Arrancar el diagnóstico con todo el equipo</h3><p>Escuchas a todos desde el principio, también a quien no cabe en la agenda.</p></div></li><li class="prob"><span data-icon="site" data-fill="#0E4A3A"></span><div><h3>Contrastar lo que cree la dirección</h3><p>Compruebas si la idea de partida del comité coincide con lo que cuenta quien hace el trabajo.</p></div></li><li class="prob"><span data-icon="people" data-fill="#0E4A3A"></span><div><h3>Preparar talleres y entrevistas en persona</h3><p>Llegas con los temas que más se repiten y las frases de la gente, y dedicas tu tiempo a profundizar.</p></div></li><li class="prob"><span data-icon="chat" data-fill="#0E4A3A"></span><div><h3>Escuchar a varios centros a la vez</h3><p>Cada persona conversa desde el móvil o el ordenador, sin que tu equipo tenga que ir a cada centro.</p></div></li><li class="prob"><span data-icon="map" data-fill="#0E4A3A"></span><div><h3>Preparar un cambio antes de implantarlo</h3><p>Preguntas a quienes tendrán que hacerlo funcionar qué les puede frenar.</p></div></li><li class="prob"><span data-icon="eye" data-fill="#0E4A3A"></span><div><h3>Apoyar tu recomendación en la voz de la gente</h3><p>Presentas al comité cuántas personas dicen cada cosa, con sus propias frases.</p></div></li></ul>
     </section>
 
     <section class="sec" id="como" data-anchor aria-labelledby="s-como">
       <div class="tag mono"><span class="n">02</span><span>Cómo trabajamos juntos</span></div>
       <h2 class="sec-h" id="s-como">En tres pasos</h2>
-      <ol class="how3"><li><span class="n">1/3</span><b>Tú fijas el marco</b><span>Acuerdas con tu cliente el reto, la pregunta principal y a quién invitar.</span></li><li><span class="n">2/3</span><b>Nosotros hacemos las entrevistas</b><span>Cada persona recibe un enlace y conversa con el entrevistador de IA cuando le viene bien, en español o en inglés.</span></li><li><span class="n">3/3</span><b>Recibes lo escuchado por temas</b><span>Con cuántas personas dicen cada cosa y sus propias frases.</span></li></ol>
-      <div class="reco"><span class="mono">Lo que no cambia</span><p>La relación con tu cliente sigue siendo tuya. El diagnóstico y las recomendaciones también: nosotros ponemos las entrevistas.</p></div>
+      <ol class="how3"><li><span class="n">1/3</span><b>Tú fijas el marco</b><span>Acuerdas con tu cliente el reto, la pregunta principal y a quién invitar.</span></li><li><span class="n">2/3</span><b>Nosotros escuchamos a todo el equipo</b><span>Preparamos el entrevistador de IA para el reto de tu cliente. Cada persona recibe un enlace y habla con él cuando le viene bien, en español o en inglés.</span></li><li><span class="n">3/3</span><b>Recibes lo escuchado por temas</b><span>Con cuántas personas dicen cada cosa y sus propias frases.</span></li></ol>
+      <div class="reco"><span class="mono">Lo que no cambia</span><p>La relación con tu cliente sigue siendo tuya. El diagnóstico y las recomendaciones, también. Nosotros ponemos la escucha de todo el equipo, en días.</p></div>
+    </section>
+
+    <section class="sec" id="por-que" data-anchor aria-labelledby="s-por">
+      <div class="tag mono"><span class="n">03</span><span>Por qué trabajar con nosotros</span></div>
+      <h2 class="visually-hidden" id="s-por">Por qué trabajar con nosotros</h2>
+      <div class="adv b-3"><div class="fact"><span data-icon="chat" data-fill="#0E4A3A"></span><div><b>En días</b><span>Lo escuchado llega mientras tu equipo prepara los talleres.</span></div></div><div class="fact"><span data-icon="people" data-fill="#0E4A3A"></span><div><b>Todo el equipo de tu cliente</b><span>También quien no cabe en la agenda de entrevistas.</span></div></div><div class="fact"><span data-icon="lock" data-fill="#0E4A3A"></span><div><b>Tu cliente sigue siendo tuyo</b><span>La relación, el diagnóstico y las recomendaciones son tuyos.</span></div></div></div>
     </section>
     <section class="sec contact" id="contacto" data-anchor aria-labelledby="h-contacto">
       <div class="c-form">
@@ -80,7 +93,6 @@
             <div class="addr"><a id="mail" href="mailto:hola@socracy.es?subject=Hablemos%20de%20Socracy%3A%20consultoras" aria-describedby="mail-l">hola@socracy.es</a><button class="btn" type="button" id="copy" data-key="c" data-mail="hola@socracy.es"><span>Copiar</span><span class="key" data-k="mint">C</span></button></div>
           </div>
           <p class="status" id="status" role="status" aria-live="polite"></p>
-          
         </div>
       </div>
       <div class="c-art"><canvas id="plus" width="40" height="40" aria-hidden="true"></canvas></div>
@@ -93,15 +105,16 @@
     <div>
       <div class="wm">socracy</div>
       <div class="f-cols">
-        <div><h2>Casos de uso</h2><ul><li><a href="operaciones.html">Operaciones</a></li><li><a href="adopcion-ia.html">Adopción de IA</a></li><li><a href="compromiso.html">Compromiso de los empleados</a></li><li><a href="puntos-de-venta.html">Mejora en puntos de venta</a></li><li><a href="administracion.html">Administración y facturación</a></li><li><a href="comercial.html">Procesos comerciales</a></li><li><a href="adquisiciones-e-inversion.html">Adquisiciones e inversión</a></li></ul></div>
-        <div><h2>Socracy</h2><ul><li><a href="index.html#el-problema">El problema</a></li><li><a href="index.html#como-funciona">Cómo funciona</a></li><li><a href="como-funciona.html">Cómo funciona, en detalle</a></li><li><a href="consultoras.html">Para consultoras</a></li></ul></div>
+        <div><h2>Casos de uso</h2><ul><li><a href="operaciones.html">Operaciones</a></li><li><a href="innovacion.html">Innovación</a></li><li><a href="recursos-humanos.html">Recursos humanos</a></li><li><a href="transformacion-digital.html">Transformación digital</a></li><li><a href="implementacion-ia.html">Implementación de IA</a></li></ul></div>
+        <div><h2>Socracy</h2><ul><li><a href="index.html#el-problema">El problema</a></li><li><a href="index.html#como-funciona">Cómo trabajamos</a></li><li><a href="como-funciona.html">Cómo trabajamos, en detalle</a></li><li><a href="consultoras.html">Para consultoras</a></li><li><a href="index.html#quienes-somos">Quiénes somos</a></li></ul></div>
         <div><h2>Contacto</h2><ul><li><a href="mailto:hola@socracy.es?subject=Hablemos%20de%20Socracy">hola@socracy.es</a></li></ul></div>
       </div>
     </div>
-    <div class="legal">© 2026 Proyectos Merli SL<br><a href="privacidad">Privacidad</a> · <a href="aviso-legal">Aviso legal</a></div>
+    <div class="legal">© 2026 Proyectos Merli SL<br><a href="privacidad.html">Privacidad</a> · <a href="aviso-legal.html">Aviso legal</a></div>
   </div>
 </footer>
 
 <script src="socracy.js"></script>
+<script src="b.js"></script>
 </body>
 </html>
