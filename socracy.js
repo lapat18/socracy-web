@@ -130,7 +130,7 @@
 
   /* Method carousel (home) */
   var STEPS = [
-    ['Eliges a quién escuchamos', 'Toda la plantilla o los equipos que tú decidas: un almacén, un turno, una planta. Antes de empezar lo explicamos a la gente y, si hace falta, al comité de empresa.', ['people', 'chat']],
+    ['Eliges a quién escuchamos', 'Toda la plantilla o los equipos que tú decidas: un almacén, un turno, una planta. Antes de empezar, una sesión corta con todo el equipo para explicar cómo funciona.', ['people', 'chat']],
     ['Cada persona, un enlace', 'Desde el móvil o el ordenador, cuando le venga bien, en español o en inglés. Un entrevistador de IA pregunta, escucha y repregunta hasta entender cómo se hace el trabajo de verdad. No es un formulario.', ['link', 'chat', 'lang']],
     ['El diagnóstico, en tu mesa', 'Los socios leen todo lo escuchado y te entregan el diagnóstico: qué falla, por qué pasa y qué mejorar primero. Cada conclusión dice cuántas personas lo plantean y se apoya en frases anónimas.', ['map', 'people']]
   ];
