@@ -100,7 +100,7 @@
   var GUAR = [
     ['Evaluación', 'green-2', 'Nadie es evaluado', 'Lo que se cuenta nunca sirve para juzgar ni sancionar a nadie.'],
     ['Anonimato', 'sage', 'Siempre se explica antes', 'Cada persona sabe si es anónimo o identificado antes de empezar.'],
-    ['Datos', 'mint', 'Tus datos, con contrato', 'Tratados con contrato y nunca usados para entrenar modelos de IA.'],
+    ['Participación', 'mint', 'Promovemos la participación', 'Realizamos acciones antes y durante la escucha para que participe el mayor número de personas.'],
     ['Trato', 'sand', 'Equipo, siempre', 'Un socio lleva tu reto de principio a fin, sin intermediarios.']
   ];
   if ($('guar')) $('guar').innerHTML = GUAR.map(function (g, i) { return '<div class="g"><span class="mono"><span class="key" data-k="' + g[1] + '">' + (i + 1) + '</span>' + g[0] + '</span><b>' + g[2] + '</b><span>' + g[3] + '</span></div>'; }).join('');
